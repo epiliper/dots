@@ -28,6 +28,12 @@ require("lazy").setup({
 	},
 
 	{
+		"lukas-reineke/headlines.nvim",
+		dependencies = "nvim-treesitter/nvim-treesitter",
+		config = true,
+		},
+
+	{
 		'nvim-lualine/lualine.nvim',
 		dependencies = { 'nvim-tree/nvim-web-devicons'},
 		config = function()
@@ -42,6 +48,28 @@ require("lazy").setup({
 		-- use opts = {} for passing setup options
 		-- this is equalent to setup({}) function
 	},
+
+	{
+		"ThePrimeagen/harpoon",
+		branch = "harpoon2",
+		config = function()
+		local harpoon = require("harpoon")
+		harpoon.setup()
+		vim.keymap.set("n", "<C-t>", function() harpoon:list():append() end)
+		vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
+
+		vim.keymap.set("n", "<C-1>", function() harpoon:list():select(1) end)
+		vim.keymap.set("n", "<C-2>", function() harpoon:list():select(2) end)
+		vim.keymap.set("n", "<C-3>", function() harpoon:list():select(3) end)
+		vim.keymap.set("n", "<C-4>", function() harpoon:list():select(4) end)
+
+		-- Toggle previous & next buffers stored within Harpoon list
+		vim.keymap.set("n", "<C-S-P>", function() harpoon:list():prev() end)
+		vim.keymap.set("n", "<C-S-N>", function() harpoon:list():next() end)
+		end,
+
+
+		},
 
 	{
 		"williamboman/mason.nvim",
@@ -61,6 +89,7 @@ require("lazy").setup({
 					"lua_ls",
 					"pylsp",
 					"clangd",
+					"rust_analyzer"
 				},
 			})
 		end,
@@ -142,6 +171,11 @@ require("lazy").setup({
 					},
 				},
 			})
+
+			lspconfig['rust_analyzer'].setup({
+				capabilities = capabilities,
+				on_attach = on_attach,
+			})
 		end,
 	},
 
@@ -158,6 +192,7 @@ require("lazy").setup({
 					"query",
 					"python",
 					"java",
+					"rust"
 				},
 				sync_install = false,
 				highlight = { enable = true },
@@ -169,7 +204,12 @@ require("lazy").setup({
 	{ "ms-jpq/coq_nvim" },
 	{ "nvim-lua/plenary.nvim" },
 
-	{ "nvim-tree/nvim-web-devicons" },
+	{ "nvim-tree/nvim-web-devicons",
+		config = function()
+			require('nvim-web-devicons').setup()
+		end,
+	},
+
 	{ "tpope/vim-commentary" },
 
 	{ "nvim-telescope/telescope.nvim" },
@@ -209,3 +249,15 @@ vim.api.nvim_set_option("clipboard", "unnamed")
 -- require("ibl").setup()
 cmdheight = 0
 
+-- telescope configuration
+local builtin = require('telescope.builtin')
+
+local actions = require('telescope.actions')
+local config = require('telescope.config')
+
+vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+-- vim.keymap.set('n', '<C-j>', actions.move_selection_next, {})
+-- vim.keymap.set('n', '<C-k>', actions.move_selection_previous, {})
