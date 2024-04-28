@@ -5,6 +5,37 @@ config = function()
 		sources = {
 			{ name = "nvim_lsp" },
 		},
+		window = {
+				completion = require("cmp").config.window.bordered(),
+				documentation = require("cmp").config.window.bordered(),
+			}
+	})
+
+	-- borders! 
+	-- Specify how the border looks like
+	local border = {
+	    { '┌', 'FloatBorder' },
+	    { '─', 'FloatBorder' },
+	    { '┐', 'FloatBorder' },
+	    { '│', 'FloatBorder' },
+	    { '┘', 'FloatBorder' },
+	    { '─', 'FloatBorder' },
+	    { '└', 'FloatBorder' },
+	    { '│', 'FloatBorder' },
+	}
+
+	-- Add the border on hover and on signature help popup window
+	local handlers = {
+	    ['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { border = border }),
+	    ['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border }),
+	}
+
+	-- Add border to the diagnostic popup window
+	vim.diagnostic.config({
+	    virtual_text = {
+		prefix = '■ ', -- Could be '●', '▎', 'x', '■', , 
+	    },
+	    float = { border = border },
 	})
 
 	local cmp_nvim_lsp = require("cmp_nvim_lsp")
@@ -58,21 +89,25 @@ config = function()
 	lspconfig["lua_ls"].setup({
 		capabilities = capabilities,
 		on_attach = on_attach,
+		handlers = handlers,
 	})
 
 	lspconfig['jedi_language_server'].setup({
 		capabilities = capabilities,
-		on_attach = on_attach
+		on_attach = on_attach,
+		handlers = handlers,
 	})
 
 	lspconfig['html'].setup({
 		capabilities = capabilities,
-		on_attach = on_attach
+		on_attach = on_attach,
+		handlers = handlers
 	})
 
 	lspconfig['tailwindcss'].setup({
 		capabilities = capabilities,
-		on_attach = on_attach
+		on_attach = on_attach,
+		handlers = handlers,
 	})
 
 	-- lspconfig['pyright'].setup({
@@ -83,8 +118,8 @@ config = function()
 	lspconfig['rust_analyzer'].setup({
 		capabilities = capabilities,
 		on_attach = on_attach,
+		handlers = handlers,
 	})
+
 end,
-
-
 }
