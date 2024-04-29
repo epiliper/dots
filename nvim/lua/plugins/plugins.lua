@@ -1,5 +1,9 @@
 plugins = {
 
+	{'saadparwaiz1/cmp_luasnip'},
+	{'rafamadriz/friendly-snippets'},
+	{'L3MON4D3/LuaSnip'},
+
 	{ "ms-jpq/coq_nvim" },
 
 	{ "nvim-lua/plenary.nvim" },
