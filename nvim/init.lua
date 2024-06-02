@@ -29,7 +29,11 @@ vim.o.termguicolors = true
 
 vim.cmd("hi! Normal guibg=NONE ctermbg=NONE")
 vim.cmd("hi! NonText guibg=NONE ctermbg=NONE")
+vim.cmd("hi! NormalNC ctermbg=NONE guibg=NONE")
+vim.cmd("hi! NvimTreeEndOfBuffer ctermbg=NONE guibg=NONE guifg=NONE ctermbg=NONE")
 
+
+-- colorscheme
 vim.api.nvim_set_option("clipboard", "unnamed")
 
 -- require("ibl").setup()
@@ -43,3 +47,18 @@ vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 
+-- nvim-tree
+require("nvim-tree").setup({
+  sort = {
+    sorter = "case_sensitive",
+  },
+  view = {
+    width = 30,
+  },
+  renderer = {
+    group_empty = true,
+  },
+  filters = {
+    dotfiles = true,
+  },
+})

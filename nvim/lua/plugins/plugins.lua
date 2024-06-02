@@ -22,7 +22,7 @@ plugins = {
 		main="ibl",
 		ops = {},
 		config = function()
-			require("ibl").setup()
+		require("ibl").setup()
 		end,
 
 	},
@@ -34,20 +34,20 @@ plugins = {
 			'nvim-neotest/nvim-nio'
 		},
 	},
+	{
+		"neanias/everforest-nvim",
+		priority = 1000,
+		lazy = false,
+		version = false,
+		config = function()
+			vim.cmd([[colorscheme everforest]])
 
- 	{
- 		"neanias/everforest-nvim",
- 		priority = 1000,
- 		lazy = false,
- 		version = false,
- 		config = function()
- 			vim.cmd([[colorscheme everforest]])
- 			require("everforest").setup({
- 				background = "medium",
- 				transparent_background_level = 1,
+		require("everforest").setup({
+				background = "medium",
+				transparent_background_level = 1,
 			})
 		end,
-	 },
+	},
 
 	{
 		"lukas-reineke/headlines.nvim",

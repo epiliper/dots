@@ -147,11 +147,40 @@ config = function()
 		handlers = handlers,
 	})
 
-	lspconfig['jedi_language_server'].setup({
-		capabilities = capabilities,
-		on_attach = on_attach,
-		handlers = handlers,
-	})
+	-- lspconfig['jedi_language_server'].setup({
+	-- 	capabilities = capabilities,
+	-- 	on_attach = on_attach,
+	-- 	handlers = handlers,
+	-- })
+	
+	-- Python
+	lspconfig["pylsp"].setup {
+	  on_attach = on_attach,
+	  settings = {
+	    pylsp = {
+	      plugins = {
+		flake8 = {
+		  enabled = false,
+		  maxLineLength = 119,
+		},
+		mypy = {
+		  enabled = true,
+		},
+		pycodestyle = {
+		  enabled = false,
+		},
+		pyflakes = {
+		  enabled = false,
+		},
+	      }
+	    }
+	  }
+	}
+
+	lspconfig["ruff_lsp"].setup {
+	  on_attach = on_attach,
+	}
+
 
 	lspconfig['html'].setup({
 		capabilities = capabilities,
@@ -167,7 +196,8 @@ config = function()
 
 	-- lspconfig['pyright'].setup({
 	-- 	capabilities = capabilities,
-	-- 	on_attach = on_attach
+	-- 	on_attach = on_attach,
+	-- 	filetypes = {"python"},
 	-- })
 
 	lspconfig['rust_analyzer'].setup({

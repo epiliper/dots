@@ -15,12 +15,13 @@ return {
 		ensure_installed = {
 			"lua_ls",
 			"pylsp",
+			-- "pyright",
 			"clangd",
 			"rust_analyzer",
-			"jedi_language_server",
+			-- "jedi_language_server",
 			"html",
-			"tailwindcss"
-
+			"tailwindcss",
+			"ruff_lsp"
 		},
 	})
 	end,
