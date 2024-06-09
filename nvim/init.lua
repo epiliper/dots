@@ -31,6 +31,7 @@ vim.cmd("hi! Normal guibg=NONE ctermbg=NONE")
 vim.cmd("hi! NonText guibg=NONE ctermbg=NONE")
 vim.cmd("hi! NormalNC ctermbg=NONE guibg=NONE")
 vim.cmd("hi! NvimTreeEndOfBuffer ctermbg=NONE guibg=NONE guifg=NONE ctermbg=NONE")
+vim.cmd("hi! NormalFloat ctermbg=NONE guibg=NONE")
 
 
 -- colorscheme
