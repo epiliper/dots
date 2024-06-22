@@ -5,6 +5,7 @@ end
 
 return  {
 "neovim/nvim-lspconfig",
+lazy = false,
 config = function()
 	cmp = require("cmp")
 	luasnip = require('luasnip')
@@ -91,6 +92,7 @@ config = function()
 		prefix = '■ ', -- Could be '●', '▎', 'x', '■', , 
 	    },
 	    float = { border = border },
+	    update_in_insert = false,
 	})
 
 	local cmp_nvim_lsp = require("cmp_nvim_lsp")

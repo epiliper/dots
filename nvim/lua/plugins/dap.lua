@@ -2,7 +2,8 @@ return	{ 'mfussenegger/nvim-dap',
 	  dependences = {
 			'rcarriga/nvim-dap-ui'
 		},
-	   config = function()
+	lazy = true,
+	config = function()
 
 		local dap = require("dap")
 		require("eli.remap")
@@ -47,7 +48,5 @@ return	{ 'mfussenegger/nvim-dap',
 		dap.configurations.rust = dap.configurations.cpp
 
 			end,
-
-	 
 	}
 

@@ -1,12 +1,42 @@
 plugins = {
 
+	{'LukeGoodsell/nextflow-vim'},
+	{'norcalli/nvim-colorizer.lua', 
+},
+	{'preservim/vim-pencil',
+},
+
+	{'folke/zen-mode.nvim',
+}, 
+
 	{'saadparwaiz1/cmp_luasnip'},
 	{'rafamadriz/friendly-snippets'},
 	{'L3MON4D3/LuaSnip'},
 
-	{ "ms-jpq/coq_nvim" },
+	{'lewis6991/gitsigns.nvim', 
 
-	{ "nvim-lua/plenary.nvim" },
+	config = function()
+
+		require('gitsigns').setup({
+			sign_priority=100,
+		})
+	end
+},
+
+	{'dstein64/vim-startuptime'},
+
+	{
+		'sainnhe/gruvbox-material',
+		lazy = false,
+		priority = 1000,
+		config = function()
+			vim.g.gruvbox_material_enable_italic = false
+			vim.cmd.colorscheme('gruvbox-material')
+		end
+	},
+
+	{ "nvim-lua/plenary.nvim",
+	},
 
 	{ "nvim-tree/nvim-web-devicons",
 		config = function()
@@ -16,7 +46,8 @@ plugins = {
 
 	{ "tpope/vim-commentary" },
 
-	{ "nvim-telescope/telescope.nvim" },
+	{ "nvim-telescope/telescope.nvim",
+	},
 
 	{ "lukas-reineke/indent-blankline.nvim", 
 		main="ibl",
@@ -34,21 +65,7 @@ plugins = {
 			'nvim-neotest/nvim-nio'
 		},
 	},
-	{
-		"neanias/everforest-nvim",
-		priority = 1000,
-		lazy = false,
-		version = false,
-		config = function()
-			vim.cmd([[colorscheme everforest]])
-
-		require("everforest").setup({
-				background = "medium",
-				transparent_background_level = 1,
-			})
-		end,
-	},
-
+	
 	{
 		"lukas-reineke/headlines.nvim",
 		dependencies = "nvim-treesitter/nvim-treesitter",
@@ -58,13 +75,18 @@ plugins = {
 		'nvim-lualine/lualine.nvim',
 		dependencies = { 'nvim-tree/nvim-web-devicons'},
 		config = function()
-			require('lualine').setup()
+			require('lualine').setup({
+				-- options = {
+				-- 	theme = "paradise",
+				-- }
+			})
 		end,
 		},
 	{
 		"iamcco/markdown-preview.nvim",
 		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop"},
 		ft = { "markdown"},
+		lazy = true,
 		build = function() vim.fn["mkdp#util#install"]() end,
 
 		},
@@ -72,8 +94,6 @@ plugins = {
 		"windwp/nvim-autopairs",
 		event = "InsertEnter",
 		config = true,
-		-- use opts = {} for passing setup options
-		-- this is equalent to setup({}) function
 	},
 }
 

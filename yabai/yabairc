@@ -24,7 +24,7 @@ yabai -m config                                 \
     split_ratio                  0.50           \
     split_type                   vertical           \
     auto_balance                 off            \
-    top_padding                  12             \
+    top_padding                  20             \
     bottom_padding               12             \
     left_padding                 12             \
     right_padding                12             \
@@ -35,7 +35,7 @@ yabai -m config                                 \
     mouse_action2                resize         \
     mouse_drop_action            swap
 
-yabai -m rule --add app="^(LuLu|Vimac|Calculator|VLC|System Preferences|zoom.us|Photo Booth|Archive Utility|Python|LibreOffice|Calendar|Todoist|Geneious Prime|Numi|Finder|TextEdit)$" manage=off
+yabai -m rule --add app="^(LuLu|Vimac|Calculator|VLC|System Preferences|zoom.us|Photo Booth|Archive Utility|Python|LibreOffice|Calendar|Todoist|Numi|Finder|TextEdit)$" manage=off
 
 yabai -m config --display 0 external_bar all:40:0
 yabai -m config --display 1 external_all:0:0

@@ -1,0 +1,28 @@
+vim.cmd "Pencil"
+
+vim.opt.spelllang = 'en_us'
+vim.opt.spell = true
+vim.opt.number = false
+vim.opt.rnu = false
+
+require("zen-mode").toggle({
+  window = {
+    width = .85,
+	backdrop = 1,
+  }
+})
+
+require("cmp").setup({
+    sources = {
+        {
+            name = "spell",
+            option = {
+                keep_all_entries = false,
+                enable_in_context = function()
+                    return true
+                end,
+                preselect_correct_word = true,
+            },
+        },
+    },
+})
