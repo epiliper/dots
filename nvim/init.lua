@@ -4,20 +4,20 @@ vim.loader.enable()
 -- LAZY CONFIG
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable", -- latest stable release
+		lazypath,
+	})
 end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins")
 
--- keymaps and misc changes 
+-- keymaps and misc changes
 vim.keymap.set("n", "<leader>y", "'+y")
 vim.keymap.set("v", "<leader>y", "'+y")
 vim.keymap.set("n", "<leader>Y", "'+Y")
@@ -28,7 +28,7 @@ vim.o.termguicolors = true
 vim.opt.cursorline = true
 vim.opt.cursorlineopt = "number"
 vim.opt.numberwidth = 4
-vim.opt.fillchars:append{ eob = " "}
+vim.opt.fillchars:append { eob = " " }
 vim.opt.scrolloff = 10
 
 vim.cmd("hi! Normal guibg=NONE ctermbg=NONE")

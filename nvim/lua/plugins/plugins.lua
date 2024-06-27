@@ -1,29 +1,36 @@
 plugins = {
 
-	{'LukeGoodsell/nextflow-vim'},
-	{'norcalli/nvim-colorizer.lua', 
-},
-	{'preservim/vim-pencil',
-},
+	{
+		'kylechui/nvim-surround',
+		config = function()
+			require("nvim-surround").setup({})
+		end,
+	},
 
-	{'folke/zen-mode.nvim',
-}, 
+	{ 'LukeGoodsell/nextflow-vim' },
+	{ 'norcalli/nvim-colorizer.lua',
+	},
+	{ 'preservim/vim-pencil',
+	},
 
-	{'saadparwaiz1/cmp_luasnip'},
-	{'rafamadriz/friendly-snippets'},
-	{'L3MON4D3/LuaSnip'},
+	{ 'folke/zen-mode.nvim',
+	},
 
-	{'lewis6991/gitsigns.nvim', 
+	{ 'saadparwaiz1/cmp_luasnip' },
+	{ 'rafamadriz/friendly-snippets' },
+	{ 'L3MON4D3/LuaSnip' },
 
-	config = function()
+	{
+		'lewis6991/gitsigns.nvim',
 
-		require('gitsigns').setup({
-			sign_priority=100,
-		})
-	end
-},
+		config = function()
+			require('gitsigns').setup({
+				sign_priority = 100,
+			})
+		end
+	},
 
-	{'dstein64/vim-startuptime'},
+	{ 'dstein64/vim-startuptime' },
 
 	{
 		'sainnhe/gruvbox-material',
@@ -38,7 +45,8 @@ plugins = {
 	{ "nvim-lua/plenary.nvim",
 	},
 
-	{ "nvim-tree/nvim-web-devicons",
+	{
+		"nvim-tree/nvim-web-devicons",
 		config = function()
 			require('nvim-web-devicons').setup()
 		end,
@@ -49,31 +57,33 @@ plugins = {
 	{ "nvim-telescope/telescope.nvim",
 	},
 
-	{ "lukas-reineke/indent-blankline.nvim", 
-		main="ibl",
+	{
+		"lukas-reineke/indent-blankline.nvim",
+		main = "ibl",
 		ops = {},
 		config = function()
-		require("ibl").setup()
+			require("ibl").setup()
 		end,
 
 	},
 
 	{ "lukas-reineke/lsp-format.nvim" },
 
-	{ "rcarriga/nvim-dap-ui",
-	dependencies = {
+	{
+		"rcarriga/nvim-dap-ui",
+		dependencies = {
 			'nvim-neotest/nvim-nio'
 		},
 	},
-	
+
 	{
 		"lukas-reineke/headlines.nvim",
 		dependencies = "nvim-treesitter/nvim-treesitter",
 		config = true,
-		},
+	},
 	{
 		'nvim-lualine/lualine.nvim',
-		dependencies = { 'nvim-tree/nvim-web-devicons'},
+		dependencies = { 'nvim-tree/nvim-web-devicons' },
 		config = function()
 			require('lualine').setup({
 				-- options = {
@@ -81,15 +91,15 @@ plugins = {
 				-- }
 			})
 		end,
-		},
+	},
 	{
 		"iamcco/markdown-preview.nvim",
-		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop"},
-		ft = { "markdown"},
+		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+		ft = { "markdown" },
 		lazy = true,
 		build = function() vim.fn["mkdp#util#install"]() end,
 
-		},
+	},
 	{
 		"windwp/nvim-autopairs",
 		event = "InsertEnter",
