@@ -7,6 +7,11 @@ plugins = {
 		end,
 	},
 
+	{
+		'fasterius/simple-zoom.nvim',
+		config = true,
+	},
+
 	{ 'LukeGoodsell/nextflow-vim' },
 	{ 'norcalli/nvim-colorizer.lua',
 	},
@@ -54,8 +59,6 @@ plugins = {
 
 	{ "tpope/vim-commentary" },
 
-	{ "nvim-telescope/telescope.nvim",
-	},
 
 	{
 		"lukas-reineke/indent-blankline.nvim",
