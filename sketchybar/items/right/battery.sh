@@ -18,14 +18,16 @@ sketchybar --add item battery right \
            --set battery update_freq=3 \
                          icon.drawing=off \
                          script="$PLUGIN_DIR/power.sh" \
-                         background.color=0xff383838\
+			 label.font="$FONT:Regular:14.5" \
+                         background.color=0xff374148 \
                          background.padding_left=0
 
 sketchybar --add item power_logo right \
            --set power_logo icon= \
-                 icon.color=0xff121219 \
+                 icon.color=0xff2b353d \
                  label.drawing=off \
-                 background.color=0xff7daea3 \
+		 icon.font="$FONT:Regular:16" \
+                 background.color=0xff7fbbb3 \
                  update_freq=90
 
 fi

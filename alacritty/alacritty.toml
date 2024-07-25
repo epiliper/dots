@@ -1,27 +1,27 @@
-## EVERFOREST
-# [colors.bright]
-# black = "#4b565c"
-# blue = "#7fbbb3"
-# cyan = "#83c092"
-# green = "#a7c080"
-# magenta = "#d699b6"
-# red = "#e67e80"
-# white = "#d3c6aa"
-# yellow = "#dbbc7f"
+# EVERFOREST
+[colors.bright]
+black = "#4b565c"
+blue = "#7fbbb3"
+cyan = "#83c092"
+green = "#a7c080"
+magenta = "#d699b6"
+red = "#e67e80"
+white = "#d3c6aa"
+yellow = "#dbbc7f"
 
-# [colors.normal]
-# black = "#4b565c" 
-# blue = "#7fbbb3"
-# cyan = "#83c092"
-# green = "#a7c080"
-# magenta = "#d699b6"
-# red = "#e67e80"
-# white = "#d3c6aa"
-# yellow = "#dbbc7f"
+[colors.normal]
+black = "#4b565c" 
+blue = "#7fbbb3"
+cyan = "#83c092"
+green = "#a7c080"
+magenta = "#d699b6"
+red = "#e67e80"
+white = "#d3c6aa"
+yellow = "#dbbc7f"
 
-# [colors.primary]
-# background = "#2D353B"
-# foreground = "#d3c6aa"
+[colors.primary]
+background = "#2D353B"
+foreground = "#d3c6aa"
 
 ## ZENBURN
 # [colors.primary]
@@ -80,35 +80,126 @@
 # cyan =    '#8AA6A2'
 # white =   '#E8E3E3'
 
-[colors.primary]
-background= '#282828'
-foreground= '#d4be98'
+## GRUVBOX MATERIAL
+# [colors.primary]
+# background= '#282828'
+# foreground= '#d4be98'
 
-[colors.normal]
-black=   '#3c3836'
-red=     '#ea6962'
-green=   '#a9b665'
-yellow=  '#d8a657'
-blue=    '#7daea3'
-magenta= '#d3869b'
-cyan=    '#89b482'
-white=   '#d4be98'
+# [colors.normal]
+# black=   '#3c3836'
+# red=     '#ea6962'
+# green=   '#a9b665'
+# yellow=  '#d8a657'
+# blue=    '#7daea3'
+# magenta= '#d3869b'
+# cyan=    '#89b482'
+# white=   '#d4be98'
 
-[colors.bright]
-black=   '#3c3836'
-red=     '#ea6962'
-green=   '#a9b665'
-yellow=  '#d8a657'
-blue=    '#7daea3'
-magenta= '#d3869b'
-cyan=    '#89b482'
-white=   '#d4be98'
+# [colors.bright]
+# black=   '#3c3836'
+# red=     '#ea6962'
+# green=   '#a9b665'
+# yellow=  '#d8a657'
+# blue=    '#7daea3'
+# magenta= '#d3869b'
+# cyan=    '#89b482'
+# white=   '#d4be98'
+
+
+# [colors.primary]
+# background = '#1f1f28'
+# foreground = '#dcd7ba'
+
+# [colors.normal]
+# black =   '#090618'
+# red =     '#c34043'
+# green =   '#76946a'
+# yellow =  '#c0a36e'
+# blue =    '#7e9cd8'
+# magenta = '#957fb8'
+# cyan =    '#6a9589'
+# white =   '#c8c093'
+
+# [colors.bright]
+# black =   '#727169'
+# red =     '#e82424'
+# green =   '#98bb6c'
+# yellow =  '#e6c384'
+# blue =    '#7fb4ca'
+# magenta = '#938aa9'
+# cyan =    '#7aa89f'
+# white =   '#dcd7ba'
+
+# [colors.selection] 
+# background = '#2d4f67'
+# foreground = '#c8c093'
+
+# Base16 Oxocarbon Dark 256 - alacritty color config
+# shaunsingh/IBM
+
+# Default colors
+# [colors.primary]
+# background = '#161616'
+# foreground = '#f2f4f8'
+
+# # Colors the cursor will use if `custom_cursor_colors` is true
+# [colors.cursor]
+# text = '#161616'
+# cursor = '#f2f4f8'
+
+# # Normal colors
+# [colors.normal]
+# black = '#161616'
+# red = '#3ddbd9'
+# green = '#33b1ff'
+# yellow = '#e6c384'
+# blue = '#42be65'
+# magenta = '#be95ff'
+# cyan = '#ff7eb6'
+# white = '#f2f4f8'
+
+# # Bright colors
+# [colors.bright]
+# black = '#525252'
+# red = '#3ddbd9'
+# green = '#33b1ff'
+# yellow = '#ee5396'
+# blue = '#42be65'
+# magenta = '#be95ff'
+# cyan = '#ff7eb6'
+# white = '#08bdba'
+
+# [[colors.indexed_colors]]
+# index = 16
+# color = "#78a9ff"
+
+# [[colors.indexed_colors]]
+# index = 17
+# color = "#82cfff"
+
+# [[colors.indexed_colors]]
+# index = 18
+# color = "#262626"
+
+# [[colors.indexed_colors]]
+# index = 19
+# color = "#393939"
+
+# [[colors.indexed_colors]]
+# index = 20
+# color = "#dde1e6"
+
+# [[colors.indexed_colors]]
+# index = 21
+# color = "#ffffff"
 
 [font]
-size = 12.5
+# size = 12.5
+size = 13
 
 [font.normal]
-family = "JetBrainsMono Nerd Font"
+# family = "JetBrainsMono Nerd Font"
+family= "BlexMono Nerd Font Mono"
 style = "Regular"
 
 [window]
@@ -119,6 +210,13 @@ startup_mode = "Windowed"
 [window.dimensions]
 columns = 120
 lines = 36
+
+[cursor]
+blink_interval = 250
+
+[cursor.style]
+shape = "Block"
+blinking = "Always"
 
 [window.padding]
 x = 30

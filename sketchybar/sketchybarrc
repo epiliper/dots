@@ -6,6 +6,8 @@ source $HOME/.config/sketchybar/icons.sh
 PLUGIN_DIR="$HOME/.config/sketchybar/plugins"
 ITEM_DIR="$HOME/.config/sketchybar/items"
 
+FONT="BlexMono Nerd Font"
+
 
 ############## BAR ##############
 sketchybar --bar height=42 \
@@ -16,22 +18,21 @@ sketchybar --bar height=42 \
                  padding_right=2 \
                  margin=10 \
                  corner_radius=12 \
-                 color=0xff282828 \
+                 color=0xff2d353b \
                  shadow=on \
                 #  topmost=true
 
 ############## GLOBAL DEFAULTS ##############
 sketchybar --default updates=when_shown \
                      icon.font="Hack Nerd Font:Bold:14.0" \
-                     icon.color=0xffd4be98 \
-                     icon.highlight_color=0xff7daea3 \
+                     icon.color=0xffd3c6aa \
+                     icon.highlight_color=0xff83c092 \
                      label.font="Hack Nerd Font:Bold:12.5" \
-                     label.color=0xffd4be98 \
+                     label.color=0xffd3c6aa\
                      background.corner_radius=5 \
                      background.height=30 \
                      icon.padding_left=4               \
                      icon.padding_right=4
-
 
 source $ITEM_DIR/left/spaces.sh
 
@@ -47,6 +48,7 @@ source $ITEM_DIR/right/date.sh
 source $ITEM_DIR/right/battery.sh
 source $ITEM_DIR/right/cpu.sh
 # source $ITEM_DIR/right/darkside.sh
+
 
 ############## FINALIZING THE SETUP ##############
 sketchybar --update

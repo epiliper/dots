@@ -12,11 +12,12 @@ sketchybar --add item date right \
            --set date update_freq=1000 \
                       icon.drawing=off \
                       script="~/.config/sketchybar/plugins/date.sh" \
-                      background.color=0xff383838 \
+                      background.color=0xff374148 \
+		      label.font="$FONT:Regular:14.5" \
                       background.padding_left=0
 
 sketchybar --add item clock_logo right\
            --set clock_logo icon= \
-                            icon.color=0xff121219\
+                            icon.color=0xff2d353B \
                             label.drawing=off \
-                            background.color=0xffa9b665 \
+                            background.color=0xffa7c080 \

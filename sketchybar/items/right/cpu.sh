@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 sketchybar --add item        cpu.top right                 \
-           --set cpu.top     label.font="$FONT:Medium:7" \
+           --set cpu.top     label.font="$FONT:Regular:10" \
                              label=CPU                     \
                              icon.drawing=off              \
                              width=0                       \
