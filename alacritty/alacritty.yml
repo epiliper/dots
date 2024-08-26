@@ -3,7 +3,8 @@ font:
     # family: JetBrainsMono NF
     # style: Regular
   # size: 13
-    family: JetBrainsMono NFP 
+    # family: JetBrainsMono NFP 
+    family: IosevkaTerm NF Medium
     style: Retina
   size: 13.5
 

@@ -15,6 +15,7 @@ return {
 			ensure_installed = {
 				"lua_ls",
 				"pylsp",
+				-- "pyright",
 				"clangd",
 				"rust_analyzer",
 				"html",

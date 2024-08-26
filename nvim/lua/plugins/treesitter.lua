@@ -1,4 +1,4 @@
-return	{
+return {
 	"nvim-treesitter/nvim-treesitter",
 	lazy = false,
 	build = ":TSUpdate",
@@ -12,12 +12,14 @@ return	{
 				"query",
 				"python",
 				"java",
-				"rust"
+				"rust",
+				"markdown",
+				"markdown_inline",
+				"html"
 			},
 			sync_install = false,
 			highlight = { enable = true },
 			indent = { enable = false },
 		})
 	end,
-	}
-
+}

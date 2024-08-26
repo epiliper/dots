@@ -1,5 +1,5 @@
 # open terminal
-# cmd - return : /Applications/kitty.app/Contents/MacOS/kitty
+# cmd - return : kitty 
 cmd - return: /Applications/Alacritty.app/Contents/MacOS/alacritty
 #cmd - o: /Applications/Obsidian.app/Contents/MacOS/Obsidian
 

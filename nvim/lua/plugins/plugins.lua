@@ -1,4 +1,20 @@
 plugins = {
+	{
+		"echasnovski/mini.icons",
+		opts = {},
+		lazy = true,
+		specs = {
+			{ "nvim-tree/nvim-web-devicons", enabled = false, optional = true },
+		},
+		init = function()
+			package.preload["nvim-web-devicons"] = function()
+				-- needed since it will be false when loading and mini will fail
+				package.loaded["nvim-web-devicons"] = {}
+				require("mini.icons").mock_nvim_web_devicons()
+				return package.loaded["nvim-web-devicons"]
+			end
+		end,
+	},
 
 	{
 		'kylechui/nvim-surround',
@@ -18,7 +34,21 @@ plugins = {
 	{ 'preservim/vim-pencil',
 	},
 
-	{ 'folke/zen-mode.nvim',
+	{
+		'folke/zen-mode.nvim',
+		config = function()
+			local zen = require("zen-mode")
+
+			zen.setup({
+				plugins = {
+					alacritty = {
+						enabled = true,
+						font = "15"
+					}
+				}
+			})
+			vim.keymap.set('n', '<leader>z', zen.toggle, { silent = true })
+		end,
 	},
 
 	{ 'saadparwaiz1/cmp_luasnip' },
@@ -38,12 +68,14 @@ plugins = {
 	{ 'dstein64/vim-startuptime' },
 
 	{
-		'sainnhe/gruvbox-material',
+		'sainnhe/everforest',
 		lazy = false,
 		priority = 1000,
 		config = function()
-			vim.g.gruvbox_material_enable_italic = false
-			vim.cmd.colorscheme('gruvbox-material')
+			-- Optionally configure and load the colorscheme
+			-- directly inside the plugin declaration.
+			vim.g.everforest_enable_italic = true
+			vim.cmd.colorscheme('everforest')
 		end
 	},
 
@@ -95,13 +127,23 @@ plugins = {
 			})
 		end,
 	},
+
 	{
+		-- Install markdown preview, use npx if available.
 		"iamcco/markdown-preview.nvim",
 		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
 		ft = { "markdown" },
-		lazy = true,
-		build = function() vim.fn["mkdp#util#install"]() end,
-
+		build = function(plugin)
+			if vim.fn.executable "npx" then
+				vim.cmd("!cd " .. plugin.dir .. " && cd app && npx --yes yarn install")
+			else
+				vim.cmd [[Lazy load markdown-preview.nvim]]
+				vim.fn["mkdp#util#install"]()
+			end
+		end,
+		init = function()
+			if vim.fn.executable "npx" then vim.g.mkdp_filetypes = { "markdown" } end
+		end,
 	},
 	{
 		"windwp/nvim-autopairs",

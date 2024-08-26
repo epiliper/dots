@@ -37,7 +37,7 @@ vim.cmd("hi! NormalNC ctermbg=NONE guibg=NONE")
 vim.cmd("hi! NvimTreeEndOfBuffer ctermbg=NONE guibg=NONE guifg=NONE ctermbg=NONE")
 vim.cmd("hi! NormalFloat ctermbg=NONE guibg=NONE")
 vim.cmd("hi! LineNr guibg=NONE ctermbg=NONE")
-vim.cmd("hi! SignColumn guibg=NONE")
+vim.cmd("hi! SignColumn guibg=NONE ctermbg=NONE")
 
 -- colorscheme
 vim.api.nvim_set_option("clipboard", "unnamed")
@@ -48,7 +48,6 @@ cmdheight = 0
 
 -- telescope configuration
 local builtin = require('telescope.builtin')
-
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>fb', builtin.buffers, {})

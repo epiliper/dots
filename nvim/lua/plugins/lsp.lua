@@ -3,11 +3,13 @@ local check_backspace = function()
 	return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
 end
 
+
 return {
 	"neovim/nvim-lspconfig",
 	lazy = false,
 	config = function()
 		cmp = require("cmp")
+		cmp.setup.filetype('markdown', { sources = {} })
 		luasnip = require('luasnip')
 		require('luasnip.loaders.from_vscode').lazy_load()
 		-- require("cmp").setup({
@@ -15,6 +17,7 @@ return {
 			sources = {
 				{ name = "nvim_lsp" },
 				{ name = "luasnip" },
+				-- { name = "spell" },
 			},
 			window = {
 				completion = cmp.config.window.bordered(),
@@ -151,6 +154,7 @@ return {
 			handlers = handlers,
 		})
 
+
 		-- lspconfig['jedi_language_server'].setup({
 		-- 	capabilities = capabilities,
 		-- 	on_attach = on_attach,
@@ -183,6 +187,13 @@ return {
 
 		lspconfig["ruff_lsp"].setup {
 			on_attach = on_attach,
+			capabilities = capabilities,
+		}
+
+		lspconfig["marksman"].setup {
+			on_attach = on_attach,
+			capabilities = capabilities,
+			handlers = handlers
 		}
 
 
@@ -192,16 +203,22 @@ return {
 			handlers = handlers
 		})
 
-		lspconfig['tailwindcss'].setup({
+		lspconfig['typst_lsp'].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
-			handlers = handlers,
+			handlers = handlers
 		})
+
+		-- lspconfig['tailwindcss'].setup({
+		-- 	capabilities = capabilities,
+		-- 	on_attach = on_attach,
+		-- 	handlers = handlers,
+		-- })
 
 		-- lspconfig['pyright'].setup({
 		-- 	capabilities = capabilities,
 		-- 	on_attach = on_attach,
-		-- 	filetypes = {"python"},
+		-- 	filetypes = { "python" },
 		-- })
 
 		lspconfig['rust_analyzer'].setup({
