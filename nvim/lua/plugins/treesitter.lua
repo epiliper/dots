@@ -13,9 +13,9 @@ return {
 				"python",
 				"java",
 				"rust",
-				"markdown",
-				"markdown_inline",
-				"html"
+				"r",
+				"bash",
+				"go"
 			},
 			sync_install = false,
 			highlight = { enable = true },

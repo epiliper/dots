@@ -3,21 +3,18 @@ local check_backspace = function()
 	return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
 end
 
-
 return {
 	"neovim/nvim-lspconfig",
 	lazy = false,
 	config = function()
 		cmp = require("cmp")
-		cmp.setup.filetype('markdown', { sources = {} })
 		luasnip = require('luasnip')
 		require('luasnip.loaders.from_vscode').lazy_load()
-		-- require("cmp").setup({
 		cmp.setup({
 			sources = {
 				{ name = "nvim_lsp" },
 				{ name = "luasnip" },
-				-- { name = "spell" },
+				{ name = "cmp_r" }
 			},
 			window = {
 				completion = cmp.config.window.bordered(),
@@ -154,48 +151,48 @@ return {
 			handlers = handlers,
 		})
 
-
 		-- lspconfig['jedi_language_server'].setup({
-		-- 	capabilities = capabilities,
-		-- 	on_attach = on_attach,
-		-- 	handlers = handlers,
-		-- })
-
-		-- Python
-		lspconfig["pylsp"].setup {
+		lspconfig['basedpyright'].setup({
+			capabilities = capabilities,
 			on_attach = on_attach,
+			root_dir = function()
+				return vim.fn.getcwd()
+			end,
+			handlers = handlers,
 			settings = {
-				pylsp = {
-					plugins = {
-						flake8 = {
-							enabled = false,
-							maxLineLength = 119,
-						},
-						mypy = {
-							enabled = true,
-						},
-						pycodestyle = {
-							enabled = false,
-						},
-						pyflakes = {
-							enabled = false,
-						},
-					}
-				}
+				basedpyright = {
+					analysis = {
+						diagnosticSeverityOverrides = {
+							reportUnknownVariableType = "none", -- Unknown variable types
+							reportUnknownParameterType = "none", -- Unknown parameter types
+							reportUnknownMemberType = "none", -- Unknown member types
+							reportMissingTypeStubs = "none", -- Missing type stubs for third-party libraries
+							reportUnknownArgumentType = "none", -- Unknown argument types
+							reportGeneralTypeIssues = "none", -- General type issues (broader category)
+							reportUnusedExpression = "none",
+						}
+					},
+				},
 			}
-		}
+		})
 
-		lspconfig["ruff_lsp"].setup {
+		lspconfig["rust_analyzer"].setup({
+			capabilites = capabilities,
 			on_attach = on_attach,
-			capabilities = capabilities,
-		}
+			handlers = handlers,
+		})
 
-		lspconfig["marksman"].setup {
+		lspconfig["gopls"].setup({
+			capabilites = capabilities,
 			on_attach = on_attach,
-			capabilities = capabilities,
-			handlers = handlers
-		}
+			handlers = handlers,
+		})
 
+		lspconfig['tailwindcss'].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+			handlers = handlers,
+		})
 
 		lspconfig['html'].setup({
 			capabilities = capabilities,
@@ -203,25 +200,13 @@ return {
 			handlers = handlers
 		})
 
-		lspconfig['typst_lsp'].setup({
+		lspconfig['emmet_language_server'].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
-			handlers = handlers
+			handlers = handlers,
 		})
 
-		-- lspconfig['tailwindcss'].setup({
-		-- 	capabilities = capabilities,
-		-- 	on_attach = on_attach,
-		-- 	handlers = handlers,
-		-- })
-
-		-- lspconfig['pyright'].setup({
-		-- 	capabilities = capabilities,
-		-- 	on_attach = on_attach,
-		-- 	filetypes = { "python" },
-		-- })
-
-		lspconfig['rust_analyzer'].setup({
+		lspconfig['clangd'].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
 			handlers = handlers,

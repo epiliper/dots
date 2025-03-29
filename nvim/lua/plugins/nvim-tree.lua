@@ -13,9 +13,9 @@ return {
 			renderer = {
 				group_empty = true,
 				icons = {
-					webdev_colors = true,
+					webdev_colors = false,
 					show = {
-						file = true,
+						file = false,
 						folder = true,
 						folder_arrow = false,
 						git = false,

@@ -38,12 +38,11 @@ vim.cmd("hi! NvimTreeEndOfBuffer ctermbg=NONE guibg=NONE guifg=NONE ctermbg=NONE
 vim.cmd("hi! NormalFloat ctermbg=NONE guibg=NONE")
 vim.cmd("hi! LineNr guibg=NONE ctermbg=NONE")
 vim.cmd("hi! SignColumn guibg=NONE ctermbg=NONE")
+vim.cmd("colorscheme everforest")
 
 -- colorscheme
-vim.api.nvim_set_option("clipboard", "unnamed")
 vim.api.nvim_set_option("synmaxcol", 200)
 
--- require("ibl").setup()
 cmdheight = 0
 
 -- telescope configuration
